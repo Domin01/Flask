@@ -56,14 +56,22 @@ def contar(dato1,dato2):
 
     return render_template("letras.html",dato1=palabra,dato2=letra,res=resultado)
 
-#Página libros: A esta página se entra con la URL /libro/codigo (siendo código un número entero). 
-
-Tienes que buscar el código en el fichero libros.xml y debes mostrar una página con un título "Biblioteca" 
-y el nombre del libro y el autor. Si no existe el código debe devolver una respuesta 404.
 
 @app.route('/libros')
 def libros():
     return render_template("libros.html")
 
+#Página libros: A esta página se entra con la URL /libro/codigo (siendo código un número entero). 
+@app.route('/libro/<int:dato1>',methods=["GET","POST"])
+def buscarcodigo(dato1):
+#Tienes que buscar el código en el fichero libros.xml y debes mostrar una página con un título "Biblioteca" 
+#y el nombre del libro y el autor. Si no existe el código debe devolver una respuesta 404.
+    doc = etree.parse('libros.xml')
+    codigo=dato1
+    libro=doc.xpath('//libro/codigo[text()="%i"]/../titulo/text()' % codigo)
+    autor=doc.xpath('//libro/codigo[text()="%i"]/../autor/text()' % codigo)
+    if len(libro)  == 0:
+        abort(404)
+    return render_template("libros.html",libro=libro[0],autor=autor[0])
 
 app.run("0.0.0.0",8000,debug=True)

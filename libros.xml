@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<biblioteca>
+	<libro>
+		<autor>Miguel de Cervantes Saavedra</autor>
+		<titulo>El Quijote de la Mancha</titulo>
+		<codigo>123</codigo>
+	</libro>
+	<libro>
+		<autor>Pablo Neruda</autor>
+		<titulo>Veinte poemas de amor y una canción desesperada</titulo>
+		<codigo>124</codigo>
+	</libro>
+    <libro>
+		<autor>JK Rowling</autor>
+		<titulo>Harry Potter</titulo>
+		<codigo>125</codigo>
+	</libro>
+    <libro>
+		<autor>JRR Tolkien</autor>
+		<titulo>El señor de los anillos</titulo>
+		<codigo>126</codigo>
+	</libro>
+    <libro>
+		<autor>Dan Brown</autor>
+		<titulo>El código Da Vinci</titulo>
+		<codigo>127</codigo>
+	</libro>
+</biblioteca>
